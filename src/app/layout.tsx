@@ -26,7 +26,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${pacifico.variable} ${dmSans.variable} antialiased`}>
-        {children}
+        <div className="desktop-block">
+          <div className="desktop-block__icon">📱</div>
+          <h1 className="desktop-block__title">Mobile Only</h1>
+          <p className="desktop-block__message">
+            This site is designed for mobile devices.<br />
+            Please open it on your phone!
+          </p>
+        </div>
+        <div className="mobile-only">
+          {children}
+        </div>
       </body>
     </html>
   );

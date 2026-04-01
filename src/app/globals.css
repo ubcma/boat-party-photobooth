@@ -78,6 +78,51 @@
   }
 }
 
+/* Mobile-only gate */
+.desktop-block {
+  display: none;
+}
+
+.mobile-only {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .desktop-block {
+    display: flex;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--background);
+    background-image: radial-gradient(circle, #E8D5C4 1px, transparent 1px);
+    background-size: 24px 24px;
+    gap: 1rem;
+    text-align: center;
+    padding: 2rem;
+  }
+
+  .desktop-block__icon {
+    font-size: 5rem;
+    line-height: 1;
+  }
+
+  .desktop-block__title {
+    font-family: var(--font-pacifico), cursive;
+    font-size: 2.5rem;
+    color: var(--color-ma-red);
+  }
+
+  .desktop-block__message {
+    font-size: 1.25rem;
+    color: var(--foreground);
+    opacity: 0.75;
+    line-height: 1.6;
+  }
+}
+
 /* Swipe carousel */
 .carousel-track {
   display: flex;
