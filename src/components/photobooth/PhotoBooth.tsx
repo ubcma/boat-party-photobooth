@@ -13,6 +13,15 @@ export function PhotoBooth() {
   const [currentSlot, setCurrentSlot] = useState(0);
   const [step, setStep] = useState<"capture" | "preview">("capture");
 
+  // Filter state
+  const FILTERS = [
+    { label: "Normal", value: "none" },
+    { label: "B&W", value: "grayscale(100%)" },
+    { label: "Sepia", value: "sepia(100%)" },
+  ] as const;
+  const [photoFilters, setPhotoFilters] = useState<string[]>(["none", "none", "none", "none"]);
+  const [activeFilterSlot, setActiveFilterSlot] = useState(0);
+
   // Frame state
   const [frames, setFrames] = useState<FrameTemplate[]>([]);
   const [frameIndex, setFrameIndex] = useState(0);
@@ -189,6 +198,7 @@ export function PhotoBooth() {
           if (ar > 1) { dw = hole.size * ar; ox = -(dw - hole.size) / 2; }
           else { dh = hole.size / ar; oy = -(dh - hole.size) / 2; }
           ctx.save();
+          ctx.filter = photoFilters[i] && photoFilters[i] !== "none" ? photoFilters[i] : "none";
           ctx.beginPath();
           ctx.rect(hole.x, hole.y, hole.size, hole.size);
           ctx.clip();
@@ -218,7 +228,7 @@ export function PhotoBooth() {
       link.download = `photobooth-${Date.now()}.png`;
       link.click();
     }
-  }, [photos, selectedFrame, selectedFrameTemplate]);
+  }, [photos, selectedFrame, selectedFrameTemplate, photoFilters]);
 
   const hasAllPhotos = photos.every((p) => p !== null);
   const hasAnyPhoto = photos.some((p) => p !== null);
@@ -320,6 +330,7 @@ export function PhotoBooth() {
                   : "h-full w-auto max-w-full shadow-2xl"
               }
               photos={photos}
+              photoFilters={photoFilters}
               frameOverlay={selectedFrame}
               frameTemplate={selectedFrameTemplate}
               onPhotoClick={undefined}
@@ -351,6 +362,62 @@ export function PhotoBooth() {
                     i === frameIndex ? "w-6 bg-[#EF3050]" : "w-2 bg-[#E8D5C4]"
                   )}
                 />
+              ))}
+            </div>
+          </div>
+
+          {/* Filter picker */}
+          <div className="flex-shrink-0 space-y-2">
+            <p className="text-center text-xs font-semibold text-[#8B7B6B]">Edit Photos</p>
+            {/* Photo slot selectors */}
+            <div className="flex justify-center gap-2">
+              {photos.map((photo, i) => (
+                <button
+                  key={i}
+                  onClick={() => setActiveFilterSlot(i)}
+                  className={cn(
+                    "relative h-11 w-11 overflow-hidden rounded-xl border-2 transition-all active:scale-95",
+                    activeFilterSlot === i ? "border-[#EF3050] shadow-md" : "border-[#E8D5C4]"
+                  )}
+                >
+                  {photo ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={photo}
+                      alt=""
+                      className="h-full w-full object-cover"
+                      style={{ filter: photoFilters[i] !== "none" ? photoFilters[i] : undefined }}
+                    />
+                  ) : (
+                    <div className="flex h-full w-full items-center justify-center bg-[#F5EDE4] text-xs font-semibold text-[#8B7B6B]">
+                      {i + 1}
+                    </div>
+                  )}
+                  {photoFilters[i] !== "none" && (
+                    <div className="absolute bottom-0.5 right-0.5 h-1.5 w-1.5 rounded-full bg-[#EF3050]" />
+                  )}
+                </button>
+              ))}
+            </div>
+            {/* Filter chips */}
+            <div className="flex gap-2 overflow-x-auto pb-1 px-1">
+              {FILTERS.map((f) => (
+                <button
+                  key={f.value}
+                  onClick={() => setPhotoFilters((prev) => {
+                    const next = [...prev];
+                    next[activeFilterSlot] = f.value;
+                    return next;
+                  })}
+                  className={cn(
+                    "flex-shrink-0 rounded-full px-3 py-1.5 text-xs font-semibold transition-all active:scale-95",
+                    photoFilters[activeFilterSlot] === f.value
+                      ? "bg-[#EF3050] text-white shadow-sm"
+                      : "bg-[#F5EDE4] text-[#8B7B6B]"
+                  )}
+                >
+                  {f.label}
+                </button>
               ))}
             </div>
           </div>

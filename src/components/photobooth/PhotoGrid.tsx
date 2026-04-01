@@ -12,6 +12,7 @@ interface PhotoGridProps {
   className?: string;
   activePhotoIndex?: number | null;
   onAction?: (action: "take" | "upload" | "remove" | "cancel", index: number) => void;
+  photoFilters?: string[];
 }
 
 export function PhotoGrid({
@@ -22,6 +23,7 @@ export function PhotoGrid({
   className,
   activePhotoIndex,
   onAction,
+  photoFilters,
 }: PhotoGridProps) {
   // Get photo holes from template or use default grid positions
   const photoHoles = frameTemplate?.photoHoles || [
@@ -82,6 +84,9 @@ export function PhotoGrid({
                     alt={`Photo ${index + 1}`}
                     fill
                     className="object-cover"
+                    style={photoFilters?.[index] && photoFilters[index] !== "none"
+                      ? { filter: photoFilters[index] }
+                      : undefined}
                   />
                 ) : (
                   <div className="flex h-full items-center justify-center bg-muted/50">
