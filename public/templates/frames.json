@@ -1,10 +1,73 @@
 {
     "frames": [
         {
-            "id": "default",
-            "name": "Default Grid",
-            "imagePath": "/templates/photobooth-frame-1.png",
-            "description": "Standard 4x1 grid layout",
+            "id": "frame-film",
+            "name": "Film",
+            "layout": "vertical",
+            "imagePath": "/templates/frame-film.png",
+            "description": "",
+            "photoHoles": [
+                {
+                    "x": 51,
+                    "y": 96,
+                    "size": 275
+                },
+                {
+                    "x": 51,
+                    "y": 382,
+                    "size": 275
+                },
+                {
+                    "x": 51,
+                    "y": 670,
+                    "size": 275
+                },
+                {
+                    "x": 51,
+                    "y": 958,
+                    "size": 275
+                }
+            ],
+            "canvasWidth": 375,
+            "canvasHeight": 1310
+        },
+        {
+            "id": "frame-newspaper",
+            "name": "Newspaper",
+            "layout": "vertical",
+            "imagePath": "/templates/frame-newspaper.png",
+            "description": "",
+            "photoHoles": [
+                {
+                    "x": 9,
+                    "y": 204,
+                    "size": 269
+                },
+                {
+                    "x": 9,
+                    "y": 480,
+                    "size": 269
+                },
+                {
+                    "x": 9,
+                    "y": 756,
+                    "size": 269
+                },
+                {
+                    "x": 9,
+                    "y": 1032,
+                    "size": 269
+                }
+            ],
+            "canvasWidth": 286,
+            "canvasHeight": 1329
+        },
+        {
+            "id": "frame-sign",
+            "name": "Sign",
+            "layout": "vertical",
+            "imagePath": "/templates/frame-sign.png",
+            "description": "",
             "photoHoles": [
                 {
                     "x": 30,
@@ -31,34 +94,97 @@
             "canvasHeight": 1179
         },
         {
-            "id": "photobooth-frame-2",
-            "name": "Vertical Strip",
-            "imagePath": "/templates/photobooth-frame-2.png",
-            "description": "Four photos in a vertical column",
+            "id": "frame-simple",
+            "name": "Simple",
+            "layout": "vertical",
+            "imagePath": "/templates/frame-simple.png",
+            "description": "",
             "photoHoles": [
                 {
-                    "x": 51,
-                    "y": 96,
-                    "size": 275
+                    "x": 11,
+                    "y": 13,
+                    "size": 258
                 },
                 {
-                    "x": 51,
-                    "y": 382,
-                    "size": 275
+                    "x": 11,
+                    "y": 283,
+                    "size": 258
                 },
                 {
-                    "x": 51,
-                    "y": 670,
-                    "size": 275
+                    "x": 11,
+                    "y": 553,
+                    "size": 258
                 },
                 {
-                    "x": 51,
-                    "y": 958,
-                    "size": 275
+                    "x": 11,
+                    "y": 823,
+                    "size": 258
                 }
             ],
-            "canvasWidth": 375,
-            "canvasHeight": 1310
+            "canvasWidth": 280,
+            "canvasHeight": 1271
+        },
+        {
+            "id": "frame-square",
+            "name": "Square",
+            "layout": "square",
+            "imagePath": "/templates/frame-square.png",
+            "description": "",
+            "photoHoles": [
+                {
+                    "x": 69,
+                    "y": 78,
+                    "size": 455
+                },
+                {
+                    "x": 602,
+                    "y": 78,
+                    "size": 455
+                },
+                {
+                    "x": 69,
+                    "y": 611,
+                    "size": 455
+                },
+                {
+                    "x": 602,
+                    "y": 611,
+                    "size": 455
+                }
+            ],
+            "canvasWidth": 1125,
+            "canvasHeight": 1240
+        },
+        {
+            "id": "frame-ticket",
+            "name": "Ticket",
+            "layout": "square",
+            "imagePath": "/templates/frame-ticket.png",
+            "description": "",
+            "photoHoles": [
+                {
+                    "x": 43,
+                    "y": 327,
+                    "size": 396
+                },
+                {
+                    "x": 473,
+                    "y": 327,
+                    "size": 396
+                },
+                {
+                    "x": 43,
+                    "y": 752,
+                    "size": 396
+                },
+                {
+                    "x": 473,
+                    "y": 752,
+                    "size": 396
+                }
+            ],
+            "canvasWidth": 913,
+            "canvasHeight": 1240
         }
     ]
 }

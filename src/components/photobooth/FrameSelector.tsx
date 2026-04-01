@@ -259,48 +259,59 @@ function FramePreview({
   const canvasWidth = template?.canvasWidth || 1200;
   const canvasHeight = template?.canvasHeight || 1600;
 
+  // Fixed bounding box — always 120×160px regardless of frame shape
+  const BOX_W = 120;
+  const BOX_H = 160;
+  const scale = Math.min(BOX_W / canvasWidth, BOX_H / canvasHeight);
+  const previewW = canvasWidth * scale;
+  const previewH = canvasHeight * scale;
+
   return (
+    // Outer bounding box: fixed size, centres the inner preview
     <div
-      className="relative overflow-hidden rounded-xl shadow-md bg-white"
-      style={{
-        width: "120px",
-        height: `${(120 * canvasHeight) / canvasWidth}px`,
-      }}
+      className="flex items-center justify-center"
+      style={{ width: BOX_W, height: BOX_H }}
     >
-      {/* Photos */}
-      {photos.slice(0, 4).map((photo, i) => {
-        const hole = photoHoles[i];
-        const left = (hole.x / canvasWidth) * 100;
-        const top = (hole.y / canvasHeight) * 100;
-        const w = (hole.size / canvasWidth) * 100;
-        const h = (hole.size / canvasHeight) * 100;
+      {/* Inner preview scaled to fit the bounding box */}
+      <div
+        className="relative rounded-xl shadow-md bg-white overflow-hidden"
+        style={{ width: previewW, height: previewH }}
+      >
+        {/* Photos */}
+        {photos.slice(0, 4).map((photo, i) => {
+          const hole = photoHoles[i];
+          const left = (hole.x / canvasWidth) * 100;
+          const top = (hole.y / canvasHeight) * 100;
+          const w = (hole.size / canvasWidth) * 100;
+          const h = (hole.size / canvasHeight) * 100;
 
-        return (
-          <div
-            key={i}
-            className="absolute overflow-hidden"
-            style={{
-              left: `${left}%`,
-              top: `${top}%`,
-              width: `${w}%`,
-              height: `${h}%`,
-            }}
-          >
-            {photo ? (
-              <Image src={photo} alt="" fill className="object-cover" />
-            ) : (
-              <div className="h-full w-full bg-[#F5EDE4]" />
-            )}
+          return (
+            <div
+              key={i}
+              className="absolute overflow-hidden"
+              style={{
+                left: `${left}%`,
+                top: `${top}%`,
+                width: `${w}%`,
+                height: `${h}%`,
+              }}
+            >
+              {photo ? (
+                <Image src={photo} alt="" fill className="object-cover" />
+              ) : (
+                <div className="h-full w-full bg-[#F5EDE4]" />
+              )}
+            </div>
+          );
+        })}
+
+        {/* Frame overlay */}
+        {frame.src && (
+          <div className="pointer-events-none absolute inset-0">
+            <Image src={frame.src} alt={frame.name} fill className="object-contain" />
           </div>
-        );
-      })}
-
-      {/* Frame overlay */}
-      {frame.src && (
-        <div className="pointer-events-none absolute inset-0">
-          <Image src={frame.src} alt={frame.name} fill className="object-contain" />
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 }

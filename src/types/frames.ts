@@ -7,6 +7,7 @@ export interface PhotoHole {
 export interface FrameTemplate {
     id: string;
     name: string;
+    layout?: "vertical" | "square"; // vertical = tall strip, square = wide/square layout
     imagePath: string | null; // Path to PNG file in /public/templates/
     description?: string;
     photoHoles: PhotoHole[]; // Array of 4 photo positions

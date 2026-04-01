@@ -293,7 +293,7 @@ export function PhotoBooth() {
 
           {/* Frame preview — takes all available space, swipe to change frame */}
           <div
-            className="relative flex flex-1 items-center justify-center overflow-hidden rounded-3xl select-none cursor-grab active:cursor-grabbing"
+            className="relative flex flex-1 min-h-0 items-center justify-center select-none cursor-grab active:cursor-grabbing"
             onTouchStart={onFrameTouchStart}
             onTouchMove={onFrameTouchMove}
             onTouchEnd={onFrameTouchEnd}
@@ -313,15 +313,17 @@ export function PhotoBooth() {
             </button>
 
             {/* The actual photobooth preview */}
-            <div className="h-full flex items-center justify-center py-1">
-              <PhotoGrid
-                className="h-full w-auto max-w-none shadow-2xl"
-                photos={photos}
-                frameOverlay={selectedFrame}
-                frameTemplate={selectedFrameTemplate}
-                onPhotoClick={undefined}
-              />
-            </div>
+            <PhotoGrid
+              className={
+                currentFrame?.layout === "square"
+                  ? "w-full max-w-full h-auto max-h-full shadow-2xl"
+                  : "h-full w-auto max-w-full shadow-2xl"
+              }
+              photos={photos}
+              frameOverlay={selectedFrame}
+              frameTemplate={selectedFrameTemplate}
+              onPhotoClick={undefined}
+            />
 
             {/* Next arrow */}
             <button
