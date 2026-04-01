@@ -158,7 +158,7 @@
         {
             "id": "frame-ticket",
             "name": "Ticket",
-            "layout": "square",
+            "layout": "vertical",
             "imagePath": "/templates/frame-ticket.png",
             "description": "",
             "photoHoles": [
