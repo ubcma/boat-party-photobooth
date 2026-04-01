@@ -1,0 +1,64 @@
+{
+    "frames": [
+        {
+            "id": "default",
+            "name": "Default Grid",
+            "imagePath": "/templates/photobooth-frame-1.png",
+            "description": "Standard 4x1 grid layout",
+            "photoHoles": [
+                {
+                    "x": 30,
+                    "y": 23,
+                    "size": 240
+                },
+                {
+                    "x": 30,
+                    "y": 295,
+                    "size": 240
+                },
+                {
+                    "x": 30,
+                    "y": 560,
+                    "size": 240
+                },
+                {
+                    "x": 30,
+                    "y": 825,
+                    "size": 240
+                }
+            ],
+            "canvasWidth": 286,
+            "canvasHeight": 1179
+        },
+        {
+            "id": "photobooth-frame-2",
+            "name": "Vertical Strip",
+            "imagePath": "/templates/photobooth-frame-2.png",
+            "description": "Four photos in a vertical column",
+            "photoHoles": [
+                {
+                    "x": 51,
+                    "y": 96,
+                    "size": 275
+                },
+                {
+                    "x": 51,
+                    "y": 382,
+                    "size": 275
+                },
+                {
+                    "x": 51,
+                    "y": 670,
+                    "size": 275
+                },
+                {
+                    "x": 51,
+                    "y": 958,
+                    "size": 275
+                }
+            ],
+            "canvasWidth": 375,
+            "canvasHeight": 1310
+        }
+    ]
+}
