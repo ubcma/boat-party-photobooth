@@ -1,6 +1,130 @@
 {
     "frames": [
         {
+            "id": "frame-red",
+            "name": "Red",
+            "layout": "vertical",
+            "imagePath": "/templates/frame-red.png",
+            "description": "",
+            "photoHoles": [
+                {
+                    "x": 34,
+                    "y": 326,
+                    "size": 288
+                },
+                {
+                    "x": 387,
+                    "y": 326,
+                    "size": 288
+                },
+                {
+                    "x": 34,
+                    "y": 679,
+                    "size": 288
+                },
+                {
+                    "x": 387,
+                    "y": 679,
+                    "size": 288
+                }
+            ],
+            "canvasWidth": 701,
+            "canvasHeight": 1246
+        },
+        {
+            "id": "frame-shells",
+            "name": "Shells",
+            "layout": "vertical",
+            "imagePath": "/templates/frame-shells.png",
+            "description": "",
+            "photoHoles": [
+                {
+                    "x": 55,
+                    "y": 251,
+                    "size": 378
+                },
+                {
+                    "x": 505,
+                    "y": 350,
+                    "size": 378
+                },
+                {
+                    "x": 55,
+                    "y": 703,
+                    "size": 378
+                },
+                {
+                    "x": 505,
+                    "y": 818,
+                    "size": 378
+                }
+            ],
+            "canvasWidth": 941,
+            "canvasHeight": 1672
+        },
+        {
+            "id": "frame-night",
+            "name": "Night",
+            "layout": "vertical",
+            "imagePath": "/templates/frame-night.png",
+            "description": "",
+            "photoHoles": [
+                {
+                    "x": 53,
+                    "y": 218,
+                    "size": 409
+                },
+                {
+                    "x": 534,
+                    "y": 218,
+                    "size": 409
+                },
+                {
+                    "x": 53,
+                    "y": 695,
+                    "size": 409
+                },
+                {
+                    "x": 534,
+                    "y": 695,
+                    "size": 409
+                }
+            ],
+            "canvasWidth": 996,
+            "canvasHeight": 1770
+        },
+        {
+            "id": "frame-ticket",
+            "name": "Ticket",
+            "layout": "vertical",
+            "imagePath": "/templates/frame-ticket.png",
+            "description": "",
+            "photoHoles": [
+                {
+                    "x": 43,
+                    "y": 327,
+                    "size": 396
+                },
+                {
+                    "x": 473,
+                    "y": 327,
+                    "size": 396
+                },
+                {
+                    "x": 43,
+                    "y": 752,
+                    "size": 396
+                },
+                {
+                    "x": 473,
+                    "y": 752,
+                    "size": 396
+                }
+            ],
+            "canvasWidth": 913,
+            "canvasHeight": 1240
+        },
+        {
             "id": "frame-film",
             "name": "Film",
             "layout": "vertical",
@@ -153,37 +277,6 @@
                 }
             ],
             "canvasWidth": 1125,
-            "canvasHeight": 1240
-        },
-        {
-            "id": "frame-ticket",
-            "name": "Ticket",
-            "layout": "vertical",
-            "imagePath": "/templates/frame-ticket.png",
-            "description": "",
-            "photoHoles": [
-                {
-                    "x": 43,
-                    "y": 327,
-                    "size": 396
-                },
-                {
-                    "x": 473,
-                    "y": 327,
-                    "size": 396
-                },
-                {
-                    "x": 43,
-                    "y": 752,
-                    "size": 396
-                },
-                {
-                    "x": 473,
-                    "y": 752,
-                    "size": 396
-                }
-            ],
-            "canvasWidth": 913,
             "canvasHeight": 1240
         }
     ]
